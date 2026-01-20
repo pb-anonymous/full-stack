@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Registration Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="form-wrapper">
+        <div class="header">
+          <h1>✨ User Registration</h1>
+          <p class="subtitle">GATE ASPIRANT;)</p>
+        </div>
+
+        <form action="#" class="form">
+          <div class="input-group">
+            <label for="name">Full Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="John Doe"
+              pattern="[A-Za-z ]{2,50}"
+              required
+            />
+            <span class="error-message" data-error="name">
+              ✗ Name should only contain letters and be at least 2 characters long
+            </span>
+          </div>
+
+          <div class="input-group">
+            <label for="age">Age</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              placeholder="25"
+              min="18"
+              max="120"
+              required
+            />
+            <span class="error-message" data-error="age">
+              ✗ Age must be between 18 and 120
+            </span>
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="john@example.com"
+              required
+            />
+            <span class="error-message" data-error="email">
+              ✗ Please enter a valid email address
+            </span>
+          </div>
+
+          <div class="button-group">
+            <button type="submit" class="btn btn-submit">
+              Submit
+            </button>
+            <button type="reset" class="btn btn-reset">Reset</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
