@@ -1,3 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --warning-color: #f59e0b;
+  --text-dark: #1f2937;
+  --text-light: #9ca3af;
+  --bg-light: #f9fafb;
+  --border-color: #e5e7eb;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 50px -10px rgba(0, 0, 0, 0.2);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,32 +23,295 @@
 }
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.banking-app {
+  width: 100%;
+  max-width: 450px;
+  animation: fadeInScale 0.6s ease-out;
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.card-container {
+  background: white;
+  border-radius: 20px;
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-header {
+  background: var(--primary-gradient);
+  padding: 24px;
+  color: white;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo {
+  font-size: 32px;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.app-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.app-subtitle {
+  font-size: 12px;
+  opacity: 0.85;
+  margin: 2px 0 0 0;
+}
+
+.balance-card {
+  background: linear-gradient(135deg, #f8f9fa 0%, #f1f5f9 100%);
+  padding: 32px 24px;
+  text-align: center;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.balance-label {
+  color: var(--text-light);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.balance-display {
+  font-size: 42px;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 16px;
+}
+
+.balance-footer {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.status-badge {
+  display: inline-block;
+  background: var(--success-color);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 12px;
+}
+
+.banking-form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.input-label {
+  color: var(--text-dark);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.currency-symbol {
+  position: absolute;
+  left: 12px;
+  color: var(--text-light);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 12px 12px 32px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-dark);
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--text-light);
+}
+
+.input-hint {
+  font-size: 11px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.btn {
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
-}
-
-.container {
-  width: 100%;
-  max-width: 500px;
-}
-
-.form-wrapper {
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  gap: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
   overflow: hidden;
-  animation: slideIn 0.5s ease-out;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.3s ease;
+  z-index: 0;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-icon {
+  font-size: 16px;
+}
+
+.btn-deposit {
+  background: var(--primary-gradient);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-deposit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.btn-deposit:active {
+  transform: translateY(0);
+}
+
+.btn-withdrawal {
+  background: var(--secondary-gradient);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.btn-withdrawal:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+}
+
+.btn-withdrawal:active {
+  transform: translateY(0);
+}
+
+.alert-container {
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  color: var(--error-color);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
+}
+
+.success-message {
+  color: var(--success-color);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+  animation: slideIn 0.3s ease-out;
 }
 
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(-5px);
   }
   to {
     opacity: 1;
@@ -38,174 +319,72 @@ body {
   }
 }
 
-.header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  padding: 40px 30px;
-  text-align: center;
+.transaction-history {
+  border-top: 1px solid var(--border-color);
+  padding: 20px 24px;
+  background: var(--bg-light);
 }
 
-.header h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-  font-weight: 600;
+.history-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  letter-spacing: 0.5px;
 }
 
-.subtitle {
-  font-size: 14px;
-  opacity: 0.9;
-  font-weight: 300;
-}
-
-.form {
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-}
-
-.input-group {
+.history-list {
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.input-group label {
-  font-size: 14px;
-  font-weight: 600;
-  color: #333;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-input {
-  padding: 12px 15px;
-  font-size: 16px;
-  border: 2px solid #e0e0e0;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background-color: #f8f9fa;
-}
-
-input:focus {
-  outline: none;
-  border-color: #667eea;
-  background-color: white;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-  transform: translateY(-2px);
-}
-
-input::placeholder {
-  color: #999;
-}
-
-/* Hide error messages by default */
-.error-message {
-  color: #e74c3c;
-  font-size: 12px;
-  display: none;
-  font-weight: 500;
-  margin-top: 4px;
-}
-
-/* Show error message when input is invalid */
-input:invalid ~ .error-message {
-  display: block;
-  animation: shake 0.3s ease-in-out;
-}
-
-@keyframes shake {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-5px);
-  }
-  75% {
-    transform: translateX(5px);
-  }
-}
-
-/* Style invalid inputs */
-input:invalid {
-  border-color: #e74c3c;
-  background-color: #ffe6e6;
-}
-
-input:valid {
-  border-color: #27ae60;
-}
-
-.button-group {
+.history-item {
   display: flex;
-  gap: 15px;
-  margin-top: 10px;
-}
-
-/* Common button styles */
-.btn {
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  background: white;
   border-radius: 8px;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  flex: 1;
+  font-size: 13px;
+  border: 1px solid var(--border-color);
 }
 
-.btn-submit {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+.history-date {
+  color: var(--text-light);
+  font-weight: 500;
 }
 
-.btn-submit:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+.history-amount {
+  font-weight: 700;
+  color: var(--text-dark);
 }
 
-.btn-submit:active {
-  transform: translateY(-1px);
+.history-item:first-child .history-amount {
+  color: var(--success-color);
 }
 
-.btn-reset {
-  background-color: #ecf0f1;
-  color: #333;
-  border: 2px solid #bdc3c7;
+.history-item:last-child .history-amount {
+  color: var(--error-color);
 }
 
-.btn-reset:hover {
-  background-color: #bdc3c7;
-  color: white;
-  transform: translateY(-3px);
-}
-
-.btn-reset:active {
-  transform: translateY(-1px);
-}
-
-@media (max-width: 600px) {
-  .form {
-    padding: 30px 20px;
-    gap: 20px;
+/* Responsive Design */
+@media (max-width: 480px) {
+  .balance-display {
+    font-size: 32px;
   }
 
-  .header {
-    padding: 30px 20px;
-  }
-
-  .header h1 {
-    font-size: 24px;
-  }
-
-  .button-group {
-    flex-direction: column;
+  .banking-form {
+    padding: 16px;
   }
 
   .btn {
-    width: 100%;
+    padding: 12px 16px;
+    font-size: 14px;
+  }
+
+  .actions {
+    gap: 10px;
   }
 }

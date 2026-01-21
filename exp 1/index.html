@@ -3,72 +3,81 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>User Registration Form</title>
+    <title>Premium Banking UI</title>
     <link rel="stylesheet" href="style.css" />
   </head>
-
   <body>
-    <div class="container">
-      <div class="form-wrapper">
-        <div class="header">
-          <h1>✨ User Registration</h1>
-          <p class="subtitle">GATE ASPIRANT;)</p>
+    <div class="stars"></div>
+    <main class="banking-app">
+      <div class="card-container">
+        <div class="card-header">
+          <div class="logo-section">
+            <div class="logo">💰</div>
+            <div>
+              <h2 class="app-title">FinanceHub</h2>
+              <p class="app-subtitle">Smart Banking Solutions</p>
+            </div>
+          </div>
         </div>
 
-        <form action="#" class="form">
-          <div class="input-group">
-            <label for="name">Full Name</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              placeholder="John Doe"
-              pattern="[A-Za-z ]{2,50}"
-              required
-            />
-            <span class="error-message" data-error="name">
-              ✗ Name should only contain letters and be at least 2 characters long
-            </span>
+        <div class="balance-card">
+          <div class="balance-label">Current Balance</div>
+          <h1 id="balance-display" class="balance-display">$1,000.00</h1>
+          <div class="balance-footer">
+            <span class="status-badge">Active Account</span>
+          </div>
+        </div>
+
+        <form id="banking-form" class="banking-form">
+          <div class="form-group">
+            <label for="amount" class="input-label">Enter Amount</label>
+            <div class="input-wrapper">
+              <span class="currency-symbol">$</span>
+              <input
+                type="number"
+                id="amount"
+                name="amount"
+                class="input-field"
+                placeholder="0.00"
+                step="0.01"
+                min="0"
+              />
+            </div>
+            <div class="input-hint">Maximum withdrawal: $1,000.00</div>
           </div>
 
-          <div class="input-group">
-            <label for="age">Age</label>
-            <input
-              type="number"
-              id="age"
-              name="age"
-              placeholder="25"
-              min="18"
-              max="120"
-              required
-            />
-            <span class="error-message" data-error="age">
-              ✗ Age must be between 18 and 120
-            </span>
-          </div>
-
-          <div class="input-group">
-            <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="john@example.com"
-              required
-            />
-            <span class="error-message" data-error="email">
-              ✗ Please enter a valid email address
-            </span>
-          </div>
-
-          <div class="button-group">
-            <button type="submit" class="btn btn-submit">
-              Submit
+          <div class="actions">
+            <button id="deposit-btn" class="btn btn-deposit" type="button" onclick="handleDeposit()">
+              <span class="btn-icon">⬆️</span>
+              Deposit
             </button>
-            <button type="reset" class="btn btn-reset">Reset</button>
+            <button id="withdraw-btn" class="btn btn-withdrawal" type="button">
+              <span class="btn-icon">⬇️</span>
+              Withdraw
+            </button>
+          </div>
+
+          <div class="alert-container">
+            <p id="error-message" class="error-message" style="display: none;">⚠️ Invalid amount!</p>
+            <p id="success-message" class="success-message" style="display: none;">✓ Transaction successful!</p>
           </div>
         </form>
+
+        <div class="transaction-history">
+          <h3 class="history-title">Recent Transactions</h3>
+          <div class="history-list">
+            <div class="history-item">
+              <span class="history-date">Today</span>
+              <span class="history-amount">+$500.00</span>
+            </div>
+            <div class="history-item">
+              <span class="history-date">Yesterday</span>
+              <span class="history-amount">-$200.00</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </main>
+    <script src="script.js"></script>
   </body>
 </html>
